@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 320" width="440" height="320">
+  <defs>
+    <!-- Background Card Gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1219" />
+      <stop offset="50%" stop-color="#0A0C11" />
+      <stop offset="100%" stop-color="#06080C" />
+    </linearGradient>
+
+    <!-- Subtle Grid -->
+    <pattern id="cardGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
+    </pattern>
+
+    <!-- Terminal Gradients -->
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141923" />
+      <stop offset="100%" stop-color="#0B0E14" />
+    </linearGradient>
+
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F2837" />
+      <stop offset="100%" stop-color="#111620" />
+    </linearGradient>
+
+    <radialGradient id="cardGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="rgba(148, 163, 184, 0.08)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+  </defs>
+
+  <style><![CDATA[
+    .font-mono { font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+
+    @keyframes calm-hover {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes server-drift {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    .anim-terminal {
+      animation: calm-hover 6s ease-in-out infinite;
+      transform-origin: 220px 160px;
+    }
+
+    .anim-server {
+      animation: server-drift 8s ease-in-out infinite;
+      transform-origin: 280px 110px;
+    }
+  ]]></style>
+
+  <!-- Card Canvas Frame -->
+  <rect width="440" height="320" rx="10" fill="url(#cardBg)" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1" />
+  <rect width="440" height="320" rx="10" fill="url(#cardGlow)" />
+  <rect width="440" height="320" rx="10" fill="url(#cardGrid)" />
+
+  <!-- Top Metadata Bar -->
+  <g transform="translate(24, 28)">
+    <rect width="5" height="5" fill="#8B949E" />
+    <text x="14" y="6" fill="#8B949E" font-size="10" font-weight="600" letter-spacing="1.5" class="font-mono">WORKSPACE // 3D CONSOLE</text>
+    <text x="392" y="6" text-anchor="end" fill="#484F58" font-size="9.5" font-weight="500" class="font-mono">60 FPS • LIVE</text>
+  </g>
+
+  <!-- Isometric Ground Grid -->
+  <g opacity="0.4" transform="translate(220, 260)">
+    <path d="M -140 0 L 0 -28 L 140 0 L 0 28 Z" fill="none" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1" />
+    <path d="M -90 -10 L 0 -28 L 90 -10" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="0.8" />
+    <path d="M -90 10 L 0 28 L 90 10" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="0.8" />
+  </g>
+
+  <!-- LAYER 1: Background 3D Server Node (Subtle parallax drift) -->
+  <g class="anim-server" transform="translate(260, 68)">
+    <animateTransform attributeName="transform" type="translate" values="260 68; 260 64; 260 68" dur="8s" repeatCount="indefinite" />
+    
+    <!-- Shadow -->
+    <polygon points="46,38 92,22 92,90 46,106" fill="#020305" opacity="0.6" />
+
+    <!-- Isometric Server Top Face -->
+    <polygon points="46,0 92,16 46,32 0,16" fill="#263143" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" />
+    
+    <!-- Isometric Server Left Face -->
+    <polygon points="0,16 46,32 46,100 0,84" fill="#131924" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+    
+    <!-- Isometric Server Right Face -->
+    <polygon points="46,32 92,16 92,84 46,100" fill="url(#serverGrad)" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1" />
+
+    <!-- Server Rack Slots & LED Lights -->
+    <line x1="52" y1="44" x2="86" y2="32" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5" />
+    <circle cx="55" cy="43" r="1.8" fill="#22C55E">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    
+    <line x1="52" y1="60" x2="86" y2="48" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5" />
+    <circle cx="55" cy="59" r="1.8" fill="#38BDF8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite" />
+    </circle>
+
+    <line x1="52" y1="76" x2="86" y2="64" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5" />
+    <circle cx="55" cy="75" r="1.8" fill="#A855F7">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2.4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- LAYER 2: Foreground Floating 3D Code Terminal Console -->
+  <g class="anim-terminal" transform="translate(36, 88)">
+    <animateTransform attributeName="transform" type="translate" values="36 88; 36 80; 36 88" dur="6s" repeatCount="indefinite" />
+    
+    <!-- Bottom Depth Shadow -->
+    <rect x="0" y="5" width="290" height="172" rx="7" fill="#020305" opacity="0.75" />
+
+    <!-- Terminal Main Body -->
+    <rect x="0" y="0" width="290" height="172" rx="7" fill="url(#termBg)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
+
+    <!-- Header Titlebar -->
+    <path d="M 0 7 C 0 3.13 3.13 0 7 0 L 283 0 C 286.87 0 290 3.13 290 7 L 290 28 L 0 28 Z" fill="rgba(255, 255, 255, 0.04)" />
+    <line x1="0" y1="28" x2="290" y2="28" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+
+    <!-- Window Buttons -->
+    <circle cx="16" cy="14" r="3.5" fill="#EF4444" opacity="0.85" />
+    <circle cx="28" cy="14" r="3.5" fill="#F59E0B" opacity="0.85" />
+    <circle cx="40" cy="14" r="3.5" fill="#10B981" opacity="0.85" />
+
+    <!-- Window Title -->
+    <text x="145" y="17.5" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="500" class="font-mono">
+      vinayak@cloud: ~/architecture
+    </text>
+
+    <!-- Terminal Execution Body -->
+    <g transform="translate(18, 52)">
+      <!-- Line 1 -->
+      <text x="0" y="0" fill="#6E7681" font-size="11" class="font-mono">$</text>
+      <text x="14" y="0" fill="#E6EDF3" font-size="11" font-weight="500" class="font-mono">init system --prod</text>
+
+      <!-- Line 2 -->
+      <text x="0" y="22" fill="#38BDF8" font-size="10.5" class="font-mono">&gt;</text>
+      <text x="14" y="22" fill="#8B949E" font-size="10.5" class="font-mono">cloud: cluster online</text>
+      <circle cx="198" cy="18" r="3" fill="#22C55E" />
+
+      <!-- Line 3 -->
+      <text x="0" y="42" fill="#38BDF8" font-size="10.5" class="font-mono">&gt;</text>
+      <text x="14" y="42" fill="#8B949E" font-size="10.5" class="font-mono">latency: 12ms [stable]</text>
+
+      <!-- Line 4 -->
+      <text x="0" y="64" fill="#22C55E" font-size="10.5" font-weight="600" class="font-mono">✓</text>
+      <text x="14" y="64" fill="#F0F6FC" font-size="10.5" font-weight="600" class="font-mono">ready for traffic</text>
+
+      <!-- Cursor -->
+      <rect x="138" y="54" width="6.5" height="12" fill="#E6EDF3">
+        <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite" />
+      </rect>
+
+      <!-- Telemetry Bar -->
+      <g transform="translate(0, 84)">
+        <text x="0" y="8" fill="#484F58" font-size="9.5" class="font-mono">CPU</text>
+        <rect x="30" y="0" width="85" height="9" rx="2.5" fill="rgba(255, 255, 255, 0.06)" />
+        <rect x="30" y="0" width="34" height="9" rx="2.5" fill="rgba(255, 255, 255, 0.3)" />
+
+        <text x="135" y="8" fill="#484F58" font-size="9.5" class="font-mono">RAM</text>
+        <rect x="168" y="0" width="75" height="9" rx="2.5" fill="rgba(255, 255, 255, 0.06)" />
+        <rect x="168" y="0" width="28" height="9" rx="2.5" fill="rgba(56, 189, 248, 0.35)" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Footer Status -->
+  <g transform="translate(24, 296)">
+    <text x="0" y="0" fill="#30363D" font-size="9" font-weight="500" class="font-mono">CLUSTER // PROD-01</text>
+    <text x="392" y="0" text-anchor="end" fill="#484F58" font-size="9" font-weight="600" class="font-mono">[ONLINE]</text>
+  </g>
+
+</svg>
