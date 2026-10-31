@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/github-header-banner.svg" alt="Vinayak Bhardwaj Header" width="100%" />
+  <img src="https://raw.githubusercontent.com/bhardwajvinayak068/bhardwajvinayak068/main/assets/github-header-banner.svg" alt="Vinayak Bhardwaj Header" width="100%" />
 </div>
 
 <br />
