@@ -1,14 +1,14 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/bhardwajvinayak068/bhardwajvinayak068/main/assets/github-header-banner.svg?v=2" alt="Vinayak Bhardwaj Header" width="100%" />
-</div>
+<a href="#overview" style="cursor: default; text-decoration: none;">
+  <img align="right" width="370" src="https://raw.githubusercontent.com/bhardwajvinayak068/bhardwajvinayak068/main/assets/3d-workspace.svg?v=1" alt="3D Workspace" />
+</a>
 
-<br />
-
-### Overview
+<h3 id="overview">Overview</h3>
 
 I partner with founders, startups, and engineering leaders as a technical consultant and independent developer. My work centers on taking complex product ideas from initial architecture to stable, production-grade software.
 
 I prioritize maintainability, pragmatic architectural choices, and predictable delivery over unnecessary complexity.
+
+<br clear="right" />
 
 ---
 
